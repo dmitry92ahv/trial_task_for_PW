@@ -1,0 +1,16 @@
+.myHdr{
+    padding: 10px 15px;
+    text-align: right;
+    background: rgb(3,101,161);
+    color: white;
+    font-size: 20px;
+}
+
+.myHdr__userName{
+    background: transparent;
+}
+
+.myHdr__delete{
+    background: transparent;
+    cursor: pointer;
+}
