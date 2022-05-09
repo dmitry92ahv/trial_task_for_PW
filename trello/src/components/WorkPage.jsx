@@ -1,16 +1,15 @@
 import React from 'react';
 import MyHeader from "./UI/MyHeader/MyHeader";
-import CardItem from "./CardItem";
 import CardList from "./CardList";
 
-const WorkPage = ({userName, remove}) => {
+const WorkPage = ({userName, remove, colums}) => {
     return (
         <div>
             <MyHeader remove={remove}>{userName}</MyHeader>
-            <CardList nameColumn = {'To Do'}/>
-            <CardList nameColumn ={'In Progress'}/>
-            <CardList nameColumn = {'Testing'}/>
-            <CardList nameColumn = {'Done'}/>
+
+            {colums.map((columns)=>
+                <CardList nameColumn = {columns.title} key={columns.id} bodyColumns={columns.body}/>
+            )}
         </div>
     );
 };

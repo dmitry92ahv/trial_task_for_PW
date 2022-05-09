@@ -8,11 +8,12 @@ const CardList = (props) => {
             <h1 style={{background: 'transparent',
                         fontSize: '16px',
                         cursor: 'pointer'}}
-                onClick={() => console.log('test')}
+                onClick={() => console.log('TODO: Rename')}
             >
                 {props.nameColumn}
             </h1>
-            <CardItem/>
+
+            <CardItem bodyColumn = {props.bodyColumns}/>
             <MyButton onClick={() => console.log('ToDo: popup new card')}>+ Добавить карточку</MyButton>
         </div>
     );

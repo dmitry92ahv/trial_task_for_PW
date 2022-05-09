@@ -18,11 +18,24 @@ function App() {
         localStorage.clear();
     }
 
+    const [columsList, setColumsList] = useState([  {id: 0, title: 'To Do', body: 'Карточки для To Do'},
+                                                             {id: 1, title: 'In Progress', body: 'Карточки для Progress'},
+                                                             {id: 2, title: 'Testing', body: 'Карточки для Testing'},
+                                                             {id: 3, title: 'Done', body: 'Карточки для Done'}
+                                                ])
+
+
+
   return (
     <div className="App">
         {!localStorage.length
             ? <Authorization create = {createUser}/>
-            : <WorkPage remove = {removeAllData} userName = {userName}></WorkPage>
+            : <WorkPage remove = {removeAllData}
+                        userName = {userName}
+                        colums = {columsList}
+                 >
+
+            </WorkPage>
         }
     </div>
   );
