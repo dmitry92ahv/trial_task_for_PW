@@ -1,11 +1,10 @@
 import React from "react";
-import MyButton from "./UI/button/MyButton";
 
-const CardItem =(props) =>{
+const CardItem =({contentCard}) =>{
+    //console.log({contentCard})
     return(
-        <div className="list__item">
-            {props.bodyColumn}
-
+        <div style={{background: 'transparent'}}>
+            {contentCard}
         </div>
     );
 }

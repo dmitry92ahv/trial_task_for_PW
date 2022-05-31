@@ -18,12 +18,26 @@ function App() {
         localStorage.clear();
     }
 
-    const [columsList, setColumsList] = useState([  {id: 0, title: 'To Do', body: 'Карточки для To Do'},
-                                                             {id: 1, title: 'In Progress', body: 'Карточки для Progress'},
-                                                             {id: 2, title: 'Testing', body: 'Карточки для Testing'},
-                                                             {id: 3, title: 'Done', body: 'Карточки для Done'}
-                                                ])
+    const [cardList, setCardList] = useState([
+        {id: 0, bodyCard: 'содержимое первой карточки To Do', type: 0},
+        {id: 1, bodyCard: 'содержимое первой карточки In Progress', type: 1},
+        {id: 2, bodyCard: 'содержимое первой карточки Testing', type: 2},
+        {id: 3, bodyCard: 'содержимое первой карточки Done', type: 3},
+    ])
 
+    const colList = [  {id: 0, title: 'To Do', body: cardList.filter(p => p.type === 0)},
+        {id: 1, title: 'In Progress', body: cardList.filter(p => p.type === 1)},
+        {id: 2, title: 'Testing', body: cardList.filter(p => p.type === 2)},
+        {id: 3, title: 'Done', body: cardList.filter(p => p.type === 3)}
+    ];
+
+    const [columnsList, setColumnsList] = useState(colList)
+
+    const createCard = (newCard) => {
+        setCardList([...cardList, newCard]);
+        setColumnsList(colList);
+        console.log(colList);
+    }
 
 
   return (
@@ -32,7 +46,9 @@ function App() {
             ? <Authorization create = {createUser}/>
             : <WorkPage remove = {removeAllData}
                         userName = {userName}
-                        colums = {columsList}
+                        columns = {columnsList}
+                        create = {createCard}
+                        cards = {cardList}
                  >
 
             </WorkPage>
